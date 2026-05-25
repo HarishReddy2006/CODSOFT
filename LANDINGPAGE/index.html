@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0"/>
+
+  <title>Prathap General Stores</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="topbar">
+    🚚 Free delivery on orders above ₹500 |
+    📞 +91 9652312818 |
+    ⏰ Open 8:30 AM – 9 PM
+  </div>
+
+  <nav>
+
+    <a href="#" class="logo">
+      Prathap <span>General Stores</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="#categories">Categories</a></li>
+
+      <li><a href="#products">Products</a></li>
+
+      <li><a href="#offers">Offers</a></li>
+
+      <li><a href="#about">About</a></li>
+
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+    <div class="nav-right">
+
+      <input
+      type="text"
+      placeholder="Search products..."
+      class="search-bar">
+
+      <button
+      class="btn-cart"
+      id="cartBtn">
+
+      🛒 Cart (0)
+
+      </button>
+
+    </div>
+
+  </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-text">
+
+    <h1>
+
+      Your trusted<br>
+
+      <em>neighbourhood</em><br>
+
+      provision store.
+
+    </h1>
+
+    <p class="hero-sub">
+
+      Fresh groceries, dairy,
+      oils and daily essentials
+      delivered to your doorstep.
+
+    </p>
+
+    <div class="hero-actions">
+
+      <button class="btn-primary"
+      onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+
+      Shop Now →
+
+      </button>
+
+      <button class="btn-outline-white"
+      onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+
+      Browse Categories
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- HERO CARD -->
+
+  <div class="hero-card">
+
+    <div class="hero-product">
+
+      <div class="hp-icon">🥛</div>
+
+      <div>
+
+        <div class="hp-name">
+          Full Cream Milk
+        </div>
+
+        <div class="hp-weight">
+          500 ml pouch
+        </div>
+
+      </div>
+
+      <div class="hp-price">
+        ₹28
+      </div>
+
+    </div>
+
+    <div class="hero-product">
+
+      <div class="hp-icon">🌾</div>
+
+      <div>
+
+        <div class="hp-name">
+          Sona Masoori Rice
+        </div>
+
+        <div class="hp-weight">
+          5 kg bag
+        </div>
+
+      </div>
+
+      <div class="hp-price">
+        ₹340
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section"
+id="categories">
+
+  <div class="section-max">
+
+    <div class="section-header">
+
+      <span class="tag">
+        Browse Categories
+      </span>
+
+      <h2 class="section-title">
+        Everything under one roof.
+      </h2>
+
+    </div>
+
+    <div class="cat-grid">
+
+      <div class="cat-card"
+      onclick="filterCategory('rice')">
+
+        <span class="emoji">🌾</span>
+
+        <div class="name">
+          Rice & Grains
+        </div>
+
+      </div>
+
+      <div class="cat-card"
+      onclick="filterCategory('oil')">
+
+        <span class="emoji">🫒</span>
+
+        <div class="name">
+          Oils & Ghee
+        </div>
+
+      </div>
+
+      <div class="cat-card"
+      onclick="filterCategory('dairy')">
+
+        <span class="emoji">🥛</span>
+
+        <div class="name">
+          Dairy Products
+        </div>
+
+      </div>
+
+      <div class="cat-card"
+      onclick="showAllProducts()">
+
+        <span class="emoji">🛒</span>
+
+        <div class="name">
+          All Products
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="section products"
+id="products">
+
+  <div class="section-max">
+
+    <div class="section-header">
+
+      <span class="tag">
+        Popular Products
+      </span>
+
+      <h2 class="section-title">
+        Customer favourites this week.
+      </h2>
+
+    </div>
+
+    <div class="products-grid">
+
+      <!-- PRODUCT 1 -->
+
+      <div class="product-card"
+      data-category="rice">
+
+        <div class="product-img">
+
+          <img
+          src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+        <div class="product-body">
+
+          <div class="product-name">
+            Sona Masoori Rice
+          </div>
+
+          <div class="product-unit">
+            5 kg bag
+          </div>
+
+          <div class="product-footer">
+
+            <span class="price-current">
+              ₹340
+            </span>
+
+            <button
+            class="btn-add"
+            onclick="addToCart('Sona Masoori Rice',340)">
+
+            +
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUCT 2 -->
+
+      <div class="product-card"
+      data-category="oil">
+
+        <div class="product-img">
+
+          <img
+          src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+        <div class="product-body">
+
+          <div class="product-name">
+            Sunflower Oil
+          </div>
+
+          <div class="product-unit">
+            1 litre bottle
+          </div>
+
+          <div class="product-footer">
+
+            <span class="price-current">
+              ₹145
+            </span>
+
+            <button
+            class="btn-add"
+            onclick="addToCart('Sunflower Oil',145)">
+
+            +
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUCT 3 -->
+
+      <div class="product-card"
+      data-category="dairy">
+
+        <div class="product-img">
+
+          <img
+          src="https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+        <div class="product-body">
+
+          <div class="product-name">
+            Full Cream Milk
+          </div>
+
+          <div class="product-unit">
+            500 ml pouch
+          </div>
+
+          <div class="product-footer">
+
+            <span class="price-current">
+              ₹28
+            </span>
+
+            <button
+            class="btn-add"
+            onclick="addToCart('Full Cream Milk',28)">
+
+            +
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OFFERS -->
+
+<section class="section"
+id="offers">
+
+  <div class="section-max">
+
+    <div class="offer-box">
+
+      <h2>
+        🎉 Weekend Offer
+      </h2>
+
+      <p>
+        Flat 10% OFF on orders above ₹999
+      </p>
+
+      <a
+      href="https://wa.me/919652312818"
+      class="whatsapp-btn">
+
+      Order on WhatsApp
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section"
+id="about">
+
+  <div class="section-max">
+
+    <div class="section-header">
+
+      <span class="tag">
+        About Us
+      </span>
+
+      <h2 class="section-title">
+
+        Trusted by families
+        for over 25 years.
+
+      </h2>
+
+      <p class="section-sub">
+
+        Prathap General Stores
+        provides quality groceries,
+        dairy products and daily
+        essentials at affordable prices.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+  <div class="footer-logo">
+
+    Prathap <span>General Stores</span>
+
+  </div>
+
+  <p class="footer-desc">
+
+    Your trusted neighbourhood
+    grocery store.
+
+  </p>
+
+  <div class="footer-contact">
+
+    <a href="tel:+919652312818">
+      📞 +91 9652312818
+    </a>
+
+    <a href="mailto:rprathap746@gmail.com">
+      ✉️ rprathap746@gmail.com
+    </a>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    © 2026 Prathap General Stores
+
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

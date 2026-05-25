@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>Checkout</title>
+
+  <link rel="stylesheet"
+  href="style.css">
+
+</head>
+
+<body>
+
+<section class="section">
+
+  <div class="section-max">
+
+    <h1 class="section-title">
+      Checkout
+    </h1>
+
+    <!-- CHECKOUT ITEMS -->
+
+    <div id="checkoutItems"></div>
+
+    <!-- TOTAL BOX -->
+
+    <div
+    class="product-card"
+    style="
+    margin-top:25px;
+    padding:20px;
+    text-align:center;">
+
+      <h2 id="totalPrice"></h2>
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <div
+    style="
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;">
+
+      <button
+      class="btn-primary"
+      id="placeOrderBtn">
+
+      Place Order
+
+      </button>
+
+      <button
+      class="btn-outline-white"
+
+      onclick="
+      window.location.href=
+      'index.html'
+      "
+
+      style="
+      color:black;
+      border:1px solid #ccc;">
+
+      Back To Shopping
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+/* LOAD CART */
+
+let cart =
+JSON.parse(
+localStorage.getItem("cart")
+) || [];
+
+let checkoutItems =
+document.getElementById(
+"checkoutItems"
+);
+
+let total = 0;
+
+/* EMPTY CART */
+
+if(cart.length === 0){
+
+  checkoutItems.innerHTML = `
+
+  <div class="product-card"
+  style="
+  padding:40px;
+  text-align:center;">
+
+    <h2>
+      Your cart is empty 🛒
+    </h2>
+
+    <p style="
+    margin-top:10px;
+    color:gray;">
+
+      Add products to continue shopping.
+
+    </p>
+
+  </div>
+
+  `;
+
+}
+
+/* SHOW PRODUCTS */
+
+else{
+
+cart.forEach((item,index) => {
+
+  total += item.price;
+
+  checkoutItems.innerHTML += `
+
+  <div class="product-card"
+  style="margin-top:20px;">
+
+    <div class="product-body">
+
+      <h3>${item.name}</h3>
+
+      <p style="
+      margin-top:8px;
+      color:green;
+      font-weight:bold;">
+
+        ₹${item.price}
+
+      </p>
+
+      <button
+      onclick="removeItem(${index})"
+
+      style="
+      margin-top:12px;
+
+      background:red;
+
+      color:white;
+
+      border:none;
+
+      padding:10px 16px;
+
+      border-radius:8px;
+
+      cursor:pointer;">
+
+      Remove
+
+      </button>
+
+    </div>
+
+  </div>
+
+  `;
+
+});
+
+}
+
+/* TOTAL */
+
+document.getElementById(
+"totalPrice"
+).innerHTML =
+"Total: ₹" + total;
+
+/* REMOVE ITEM */
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  location.reload();
+
+}
+
+/* PLACE ORDER */
+
+document.getElementById(
+"placeOrderBtn"
+).addEventListener(
+"click",
+function(){
+
+  if(cart.length === 0){
+
+    alert(
+    "Your cart is empty"
+    );
+
+  }
+
+  else{
+
+    alert(
+    "Order placed successfully 🎉"
+    );
+
+    localStorage.removeItem(
+      "cart"
+    );
+
+    window.location.href =
+    "index.html";
+
+  }
+
+});
+
+</script>
+
+</body>
+
+</html>
